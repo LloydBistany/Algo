@@ -19,6 +19,8 @@ function fastCache(func) {
   }
 }
 
+
+
 /*
 Extension: Rewrite fastCache so it can handle array or object input, and any number of arguments.
 HINT: you might need to use the spread operator...
@@ -40,5 +42,27 @@ const fastCacheAdvanced = func => {
     }
   }
 };
+
+const map = new Map();
+map.set({ 2: 4 }, 5);
+
+const map1 = new Map();
+map1.set({ 2: 4 }, 5);
+
+
+
+const logger = (input) => {
+  console.log(input)
+}
+
+const cachedFunction = fastCacheAdvanced(logger)
+
+cachedFunction(map);
+cachedFunction(map1);
+
+
+
+
+
 
 module.exports = { fastCache, fastCacheAdvanced };
