@@ -30,24 +30,27 @@ characters. How do we keep track of this "window"?
 
 */
 
-const substringNonrepeating = (str, highest = 0, counter = 0, cache = {}) => {
-  if (str[0] === undefined) {
-    return highest;
+const substringNonrepeating = str => {
+  let cache = new Set();
+  let longest = 0
+
+  let i = 0;
+  let j = 0;
+
+  while (j < str.length)  {
+    if (cache.has(str[j]))  {
+      cache.delete(str[i]);
+      i++;
+    }
+    else {
+      cache.add(str[j]);
+      longest = Math.max(longest, cache.size);
+      j++;
+    }
   }
-  if (cache[str[0]]) {
-    console.log("resetting counter")
-    counter = 1;
-  } else {
-    console.log("incrementing and caching")
-    counter++;
-    cache[str[0]] = true;
-  }
-  if (counter > highest) {
-    highest = counter;
-  }
-  return substringNonrepeating(str.slice(1), highest, counter, cache);
+  return longest;
 };
 
-test = "abcabcbb";
+test = "pwwkew";
 
 console.log(substringNonrepeating(test));
