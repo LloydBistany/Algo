@@ -37,8 +37,8 @@ const substringNonrepeating = str => {
   let i = 0;
   let j = 0;
 
-  while (j < str.length)  {
-    if (cache.has(str[j]))  {
+  while (j < str.length) {
+    if (cache.has(str[j])) {
       cache.delete(str[i]);
       i++;
     }
