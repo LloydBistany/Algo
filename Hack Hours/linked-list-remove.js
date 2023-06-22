@@ -28,19 +28,6 @@ function Node(val) {
   this.next = null;
 }
 
-const test = new LinkedList();
-const first = new Node('a');
-const second = new Node('b');
-const third = new Node('c');
-const fourth = new Node('b');
-const fifth = new Node('d');
-
-test.head = first;
-first.next = second;
-second.next = third;
-third.next = fourth;
-fourth.next = fifth;
-
 function linkedListRemove(ll, value) {
   let nodeToRemove;
   let current = ll.head;
@@ -81,3 +68,28 @@ Given a linked list:
  ('a' -> 'b' -> 'c')
 
 */
+
+const linkedListRemoveMultiple = (ll, val) => {
+  // handling the case where list's head is a match
+  while (ll.head.val === val) {
+    const deletedHead = ll.head;
+    ll.head = ll.head.next;
+    deletedHead.next = null;
+  }
+  // iterate thru list, removing any matches
+  let currentNode = ll.head,
+    nextNode = ll.head.next;
+
+  while (nextNode) {
+    // found a match
+    if (nextNode.val === val) {
+      currentNode.next = nextNode.next;
+      nextNode.next = null;
+    }
+    // update vars to continue iterating
+    // currentNode only needs updating if nextNode was NOT a match
+    else currentNode = currentNode.next;
+    nextNode = currentNode.next;
+  }
+  return ll;
+};
