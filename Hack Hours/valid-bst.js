@@ -79,6 +79,15 @@ const validBST = (tree, left = null, right = null) => {
   return (validBST(tree.left, left, tree) && validBST(tree.right, tree, right))
 }
 
+
+
+
+
+
+
+
+
+
 function validBST(tree, min = -Infinity, max = Infinity) {
   if (!tree) return true;
   if (tree.value < min || tree.value > max) return false;
