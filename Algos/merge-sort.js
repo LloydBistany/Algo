@@ -6,7 +6,7 @@ function mergeSort(array) {
   return merge(left, right);
 }
 
-// splice is evil
+//helper function
 function merge(left, right) {
   const merged = [];
   let ind1 = 0, ind2 = 0;
@@ -20,3 +20,5 @@ function merge(left, right) {
   }
   return merged;
 }
+
+// console.log(mergeSort([5,4,1,2,7,16,12,9]));
