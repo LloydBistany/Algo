@@ -11,9 +11,9 @@ function merge(left, right) {
   const merged = [];
   let ind1 = 0, ind2 = 0;
   while (left[ind1] !== undefined || right[ind2] !== undefined) {
-    if (left[ind1] < right[ind2])
+    if (left[ind1] > right[ind2])
       merged.push(left[ind1++]);
-    else if (left[ind1] >= right[ind2])
+    else if (left[ind1] <= right[ind2])
       merged.push(right[ind2++]);
     else
       merged.push(left[ind1++] || right[ind2++]);
@@ -21,4 +21,5 @@ function merge(left, right) {
   return merged;
 }
 
-// console.log(mergeSort([5,4,1,2,7,16,12,9]));
+console.log(mergeSort([5,4,1,2,0,7,16,12,9, -1]));
+

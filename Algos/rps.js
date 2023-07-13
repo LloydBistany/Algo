@@ -12,7 +12,7 @@ function rockPaperScissors(num) {
   //edge case 
   if (num === 0) return [];
   //helper function to populate outcomes array
-  function rps(num, throws){
+  function rps(num, throws) {
     if (num === 0) {
       return outcomes.push(throws);
     }
@@ -21,10 +21,11 @@ function rockPaperScissors(num) {
     rps(num - 1, throws.concat('scissors'));
   }
 
+
   const outcomes = [];
   //helper function is called
   rps(num, []);
   return outcomes;
 }
 
-// console.log(rockPaperScissors(2));
+console.log(rockPaperScissors(2));
